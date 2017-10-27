@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const chalk = require('chalk');
+const mongoose = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -26,6 +28,16 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost/bankek', function (err) {
+  if (err) {
+    throw err;
+  } else {
+    console.log(chalk.green('MongoDB connected'));
+  }
+});
+
 /**
  * Get port from environment and store in Express.
  */
@@ -40,4 +52,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => console.log(chalk.green(`API running on localhost:${port}`)));
