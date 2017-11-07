@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 // Get our API routes
 const api = require('./server/routes/api');
+const users = require('./server/routes/users');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/api', api);
+app.use('/users', users);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
@@ -30,13 +32,7 @@ app.get('*', (req, res) => {
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/bankek', function (err) {
-  if (err) {
-    throw err;
-  } else {
-    console.log(chalk.green('MongoDB connected'));
-  }
-});
+mongoose.connect('mongodb://localhost/bankek');
 
 /**
  * Get port from environment and store in Express.
