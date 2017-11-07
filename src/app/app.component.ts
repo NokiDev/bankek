@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AccountServiceService } from './account-service.service';
+import { Transaction } from './models/Transactions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  accounts:Array<String>;
+
+  constructor(public account:AccountServiceService){
+    this.accounts = this.account.getTransactions();
+  }
 }
