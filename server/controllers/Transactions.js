@@ -19,6 +19,7 @@ let Transactions  = {
     getTransactions: function(req, res){
         Transaction.find({}, (err, transactions) => {
             if(err){
+                throw err;
                 res.sendStatus(404);
             }else{
                 res.status(200).json({

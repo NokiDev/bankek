@@ -7,13 +7,12 @@ import { HttpClient } from '@angular/common/http';
 export class AccountServiceService {
 
   constructor(public http:HttpClient) { }
-  public data:Array<String>;
-  getTransactions():Array<String>{
-    this.http.get("/transactions")
+  public data:any;
+  getTransactions():void{
+    this.http.get("/transactions/getTransactions")
     .subscribe (
-      data => {this.data}
+      data => {this.data = data;}
     );
-    return this.data;
   }
 
 }

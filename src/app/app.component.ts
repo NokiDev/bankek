@@ -12,6 +12,7 @@ export class AppComponent {
   accounts:Array<String>;
 
   constructor(public account:AccountServiceService){
-    this.accounts = this.account.getTransactions();
+    account.getTransactions();
+    this.accounts = account.data;
   }
 }

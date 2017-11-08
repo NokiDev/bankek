@@ -21,7 +21,6 @@ app.use(cookieSession({
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
-
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -36,10 +35,6 @@ app.use('/api', api);
 app.use('/users', users);
 app.use('/transactions', transactions);
 
-// Catch all other routes and return the index file
-// app.get('/angular', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist/index.html'));
-// });
 
 mongoose.Promise = global.Promise;
 
