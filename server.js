@@ -22,11 +22,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-app.use('/api', api);
+app.use('/', api);
 app.use('/users', users);
 
 // Catch all other routes and return the index file
-app.get('*', (req, res) => {
+app.get('/angular', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 

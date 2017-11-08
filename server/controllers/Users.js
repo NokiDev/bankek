@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-chalk = require('chalk');
+chalk = require('chalk'),
+jwt = require('jsonwebtoken'),
 User = require('../models/User');
 
 let Users  = {
@@ -25,6 +26,8 @@ let Users  = {
         User.findOne({ 'email': form.email }, function (err, user) {
             if (err) return handleError(err);
             if(form.password === user.password){
+                const token = jwt.sign({user}, 'my_secret_key');
+                console.log(token);
                 res.sendStatus(200);
             }
             else{
