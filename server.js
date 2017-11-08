@@ -10,6 +10,7 @@ const cookieSession = require('cookie-session')
 // Get our API routes
 const api = require('./server/routes/api');
 const users = require('./server/routes/users');
+const transactions = require('./server/routes/transactions');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // Set our api routes
 app.use('/api', api);
 app.use('/users', users);
+app.use('/transactions', transactions);
 
 // Catch all other routes and return the index file
 // app.get('/angular', (req, res) => {
