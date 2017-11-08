@@ -27,7 +27,7 @@ let Users  = {
             if (err) return handleError(err);
             if(form.password === user.password){
                 const token = jwt.sign({user}, 'my_secret_key');
-                console.log(token);
+                req.session.usertoken = token;
                 res.sendStatus(200);
             }
             else{
