@@ -2,13 +2,15 @@ var mongoose = require('mongoose'),
 chalk = require('chalk'),
 jwt = require('jsonwebtoken'),
 Transaction = require('../models/Transaction');
+User = require('../models/User');
 
 let Transactions  = {
     sendTransaction : function(req, res){
         let t = new Transaction({
             title: req.body.title,
             amount: req.body.amount,
-            date: Date.now()
+            date: Date.now(),
+            user_id: User.getCurrentUser()
         });
         t.save(
             function(){ 
