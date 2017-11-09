@@ -9,10 +9,10 @@ import { Transaction } from './models/Transactions';
 })
 export class AppComponent {
   title = 'app';
-  accounts:Array<String>;
+  accounts:any;
 
   constructor(public account:AccountServiceService){
     account.getTransactions();
-    this.accounts = account.data;
+    this.accounts = account.data.transactions;
   }
 }
