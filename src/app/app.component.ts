@@ -12,7 +12,7 @@ export class AppComponent {
   accounts:any;
 
   constructor(public account:AccountServiceService){
-    account.getTransactions();
-    this.accounts = account.data.transactions;
+    //account.getTransactions();
+    //this.accounts = account.data.transactions;
   }
 }

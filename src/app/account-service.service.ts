@@ -15,4 +15,9 @@ export class AccountServiceService {
     );
   }
 
+  createTransaction(form){
+    this.http.post("/transactions/addTransaction", form)
+    .subscribe()
+  }
+
 }

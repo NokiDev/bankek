@@ -1,0 +1,9 @@
+<form (ngSubmit)="add(form.value)" #form="ngForm">
+  <div>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" ngModel>
+      <label for="amount">Amount</label>
+      <input type="text" id="amount" name="amount" ngModel>
+    </div>
+  <button type="submit">Envoyer</button>
+</form>
