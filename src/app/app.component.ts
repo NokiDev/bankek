@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountServiceService } from './account-service.service';
 import { Transaction } from './models/Transactions';
 
@@ -7,12 +7,22 @@ import { Transaction } from './models/Transactions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   accounts:any;
 
   constructor(public account:AccountServiceService){
-    //account.getTransactions();
-    //this.accounts = account.data.transactions;
+  }
+
+  ngOnInit(){
+    this.refresh();
+    setInterval(() => {
+      this.refresh()
+    }, 5000);
+  }
+
+  refresh(){
+    this.account.getTransactions().subscribe(data=>this.accounts = data.transactions);
+    
   }
 }

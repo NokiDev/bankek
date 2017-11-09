@@ -6,17 +6,12 @@ import {AccountServiceService } from '../account-service.service'
   templateUrl: './addform.component.html',
   styleUrls: ['./addform.component.css']
 })
-export class AddformComponent implements OnInit {
+export class AddformComponent {
 
-  constructor(public accountService: AccountServiceService) { 
-    
-  }
+  constructor(public accountService: AccountServiceService) {}
+
 
   add(form){
-    this.accountService.createTransaction(form)
+    this.accountService.createTransaction(form).subscribe();
   }
-
-  ngOnInit() {
-  }
-
 }

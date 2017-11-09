@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from './models/Transactions';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs/Observable'
 
 
 @Injectable()
@@ -8,16 +9,12 @@ export class AccountServiceService {
 
   constructor(public http:HttpClient) { }
   public data:any;
-  getTransactions():void{
-    this.http.get("/transactions/getTransactions")
-    .subscribe (
-      data => {this.data = data;}
-    );
+  getTransactions():Observable<any>{
+    return this.http.get("/transactions/getTransactions");
   }
 
-  createTransaction(form){
-    this.http.post("/transactions/addTransaction", form)
-    .subscribe()
+  createTransaction(form):Observable<any>{
+    return this.http.post("/transactions/addTransaction", form)
   }
 
 }
