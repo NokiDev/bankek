@@ -17,3 +17,15 @@ Run `npm start` to launch the nodemon which watches for server side modification
 ## Production Launch
 
 Run `npm prod` to launch a rebuild of the client and the node server
+
+
+
+todo: 
+gerer les transferts par comptes (a l'affichage)
+filtres pour le tableau
+cron pour les operations
+
+(1point) socketio
+
+
+++ utilisation atlas?
