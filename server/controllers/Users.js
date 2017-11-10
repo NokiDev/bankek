@@ -14,10 +14,12 @@ let Users = {
       password: req.body.password
     });
     u.save(
-      function () {
+      function (err,u) {
+          if(err) throw err;
         res.sendStatus(200);
       }
     );
+    console.log(u)
   },
 
   connect: function (req, res) {
@@ -29,6 +31,8 @@ let Users = {
       'email': form.email
     }, function (err, user) {
       if (err) return handleError(err);
+      console.log(user)
+      
       if (form.password === user.password) {
         const token = jwt.sign(user.id, 'my_secret_key');
         req.session.usertoken = token;

@@ -21,7 +21,7 @@ let Transactions = {
 
   },
   getTransactions: function (req, res) {
-    Transaction.find({}, (err, transactions) => {
+    Transaction.find({user_id: jwt.decode(req.session.usertoken)}, (err, transactions) => {
       if (err) {
         throw err;
         res.sendStatus(404);
