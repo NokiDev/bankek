@@ -1,5 +1,7 @@
 # Bankek
 
+But: Creer une application qui gere les transactions d'une banque par utilisateurs. 
+
 This project was generated with [Angular CLI] and works with NodeJS Express
 
 ## Installation
