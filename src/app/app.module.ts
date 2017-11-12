@@ -9,6 +9,7 @@ import { AccountServiceService } from './account-service.service';
 import { UserServiceService } from './user-service.service';
 import { AddformComponent } from './addform/addform.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     TableComponent,
     AddformComponent,
     LoginFormComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

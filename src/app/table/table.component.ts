@@ -7,8 +7,10 @@ import { Transaction } from '../models/Transactions'
 })
 export class TableComponent{
 
-
+FilterPipe
   constructor() { }
+
+  public search:string;
 
   @Input()
   account: Array<Transaction>
