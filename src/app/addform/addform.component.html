@@ -7,5 +7,15 @@
     <label for="amount">Amount</label>
     <input class="form-control" type="text" id="amount" name="amount" ngModel>
   </div>
+  <div class="form-group" id="cron">
+    <label for="every">Tout les</label>
+      <select class="form-control" type="text" id="every" name="every" ngModel>
+      <option *ngFor="let idx of option">
+        {{idx}}
+      </option>
+    </select>      
+  </div>
   <button class="btn btn-primary" type="submit">Envoyer</button>
+  <button class="btn btn-primary" type="button" (click)="showCron()">Cron</button>
 </form>
+

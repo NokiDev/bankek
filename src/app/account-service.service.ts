@@ -14,7 +14,11 @@ export class AccountServiceService {
   }
 
   createTransaction(form):Observable<any>{
+    console.log("1")
     return this.http.post("/transactions/addTransaction", form)
   }
-
+  createCronTransaction(form):Observable<any>{
+    console.log("2")    
+    return this.http.post("/transactions/addCronTransaction", form)
+  }
 }
